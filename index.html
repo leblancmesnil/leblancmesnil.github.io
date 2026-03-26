@@ -4,81 +4,246 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Le Blanc-Mesnil — Accueil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-      :root{
-        --bg:#f7fbf9;
-        --card:#ffffff;
-        --accent:#0b7a61; /* PSE-like green */
-        --muted:#6b7280;
+      *, *::before, *::after { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #f5f6f8;
+        color: #212529;
+        line-height: 1.5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        -webkit-font-smoothing: antialiased;
       }
-      html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
-      body{background:linear-gradient(180deg,var(--bg),#eef7f4);min-height:100vh;display:flex;flex-direction:column}
-      header{background:transparent;padding:18px 28px;display:flex;align-items:center;justify-content:center}
-      .topbar{width:100%;max-width:1100px;display:flex;align-items:center;justify-content:space-between}
-      .nav{display:flex;gap:10px;align-items:center}
-      .nav a{color:var(--accent);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
-      .nav a.primary{background:var(--accent);color:#fff}
-      .container{max-width:920px;padding:36px;margin:24px auto;flex:1;display:flex;align-items:center;justify-content:center}
-      .card{background:var(--card);border-radius:12px;box-shadow:0 8px 30px rgba(10,20,15,0.06);padding:40px;text-align:center}
-      .brand{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:18px}
-      .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2aa67a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
-      h1{margin:0;font-size:20px;color:#06241a}
-      p.lead{color:var(--muted);margin-top:6px;margin-bottom:22px}
-      .links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-      .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;color:white;background:var(--accent);box-shadow:0 6px 18px rgba(11,122,97,0.16)}
-      .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(11,122,97,0.12);box-shadow:none}
-      .meta{margin-top:18px;color:var(--muted);font-size:13px}
-      footer{padding:18px 28px;background:transparent}
-      .foot-inner{width:100%;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
-      .foot-inner a{color:var(--accent);text-decoration:none;font-weight:600}
-      @media (max-width:520px){.card{padding:20px}.logo{width:48px;height:48px}}
+
+      /* ── Header (matches PSE exactly) ── */
+      .header {
+        background: linear-gradient(135deg, #1B4965 0%, #2A6F97 100%);
+        color: #fff;
+        padding: 1.5rem 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .header-brand {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+      .header-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 72px;
+        height: 72px;
+        background: #fff;
+        padding: .5rem;
+        border-radius: .6rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,.12);
+        font-size: 1.6rem;
+        font-weight: 800;
+        color: #1B4965;
+        letter-spacing: -.02em;
+      }
+      .header-text h1 {
+        font-size: 1.35rem;
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.3;
+      }
+      .header-text p {
+        margin: .2rem 0 0;
+        opacity: .85;
+        font-size: .9rem;
+      }
+      .header-tag {
+        font-size: .85rem;
+        opacity: .75;
+      }
+
+      /* ── Main content ── */
+      .main {
+        flex: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 3rem;
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #1B4965;
+        margin: 0 0 1.25rem;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        font-size: .8rem;
+      }
+
+      /* ── Card grid ── */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .card {
+        background: #fff;
+        border-radius: .75rem;
+        box-shadow: 0 1px 4px rgba(0,0,0,.08);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+        text-decoration: none;
+        color: inherit;
+        transition: box-shadow .2s, transform .2s;
+        border-top: 4px solid transparent;
+      }
+      .card:hover {
+        box-shadow: 0 6px 24px rgba(0,0,0,.12);
+        transform: translateY(-2px);
+      }
+      .card.blue  { border-top-color: #1B4965; }
+      .card.teal  { border-top-color: #2A9D8F; }
+
+      .card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: .6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .card.blue .card-icon  { background: linear-gradient(135deg, #1B4965, #2A6F97); }
+      .card.teal .card-icon  { background: linear-gradient(135deg, #2A9D8F, #52B788); }
+
+      .card-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #212529;
+        margin: 0;
+      }
+      .card-desc {
+        font-size: .9rem;
+        color: #6c757d;
+        margin: 0;
+        flex: 1;
+      }
+      .card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+        font-size: .85rem;
+        font-weight: 600;
+        margin-top: .5rem;
+        padding: .55rem 1rem;
+        border-radius: .5rem;
+        color: #fff;
+        align-self: flex-start;
+      }
+      .card.blue .card-cta  { background: #1B4965; }
+      .card.teal .card-cta  { background: #2A9D8F; }
+
+      /* ── Footer ── */
+      footer {
+        background: linear-gradient(135deg, #1B4965 0%, #2A6F97 100%);
+        color: rgba(255,255,255,.8);
+        padding: 1.25rem 0;
+        font-size: .85rem;
+      }
+      .foot-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: .75rem;
+      }
+      .foot-inner a {
+        color: rgba(255,255,255,.9);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .foot-inner a:hover { text-decoration: underline; }
+
+      @media (max-width: 600px) {
+        .card-grid { grid-template-columns: 1fr; }
+        .foot-inner { flex-direction: column; text-align: center; }
+      }
     </style>
   </head>
   <body>
-    <header>
-      <div class="topbar">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div class="logo">LM</div>
-          <div>
-            <div style="font-weight:700;color:#06241a">Le Blanc‑Mesnil</div>
-            <div style="font-size:12px;color:var(--muted)">Ressources et projets</div>
+
+    <header class="header">
+      <div class="header-inner">
+        <div class="header-brand">
+          <div class="header-logo">LM</div>
+          <div class="header-text">
+            <h1>Le Blanc‑Mesnil</h1>
+            <p>Ressources et projets — portail d'accès</p>
           </div>
         </div>
-        <nav class="nav">
-          <a href="/PSE/" class="">PSE</a>
-          <a href="/Programme/" class="primary">Programme</a>
-        </nav>
+        <div class="header-tag">Mis à jour le 26 mars 2026</div>
       </div>
     </header>
 
-    <main class="container">
-      <div class="card" role="main">
-        <div class="brand">
-          <div class="logo">LM</div>
-          <div>
-            <h1>Le Blanc‑Mesnil</h1>
-            <p class="lead">Ressources et projets — accueil</p>
-          </div>
-        </div>
+    <main class="main">
+      <p class="section-title">Applications disponibles</p>
 
-        <p class="lead">Choisissez une destination :</p>
+      <div class="card-grid">
 
-        <div class="links">
-          <a class="btn" href="/Programme/">Programme — Site</a>
-          <a class="btn secondary" href="/PSE/">PSE — Plateforme</a>
-         
-        </div>
+        <a class="card blue" href="/Programme/">
+          <div class="card-icon">P</div>
+          <h2 class="card-title">Programme</h2>
+          <p class="card-desc">
+            Suivez le programme municipal : 100 jours, gouvernance, pouvoir d'achat, projets, glossaire et outils.
+          </p>
+          <span class="card-cta">Accéder →</span>
+        </a>
 
-        <div class="meta">Vous êtes sur la page d'accueil. Les liens ci‑dessous mènent aux versions déployées.</div>
+        <a class="card teal" href="/PSE/">
+          <div class="card-icon">PSE</div>
+          <h2 class="card-title">PSE — Plateforme</h2>
+          <p class="card-desc">
+            Pilotage du Plan de Sauvegarde de l'Emploi — suivi des mesures, avancement et indicateurs.
+          </p>
+          <span class="card-cta">Accéder →</span>
+        </a>
+
       </div>
     </main>
 
     <footer>
       <div class="foot-inner">
-        <div>© Le Blanc‑Mesnil — Ressources et projets</div>
-        <div><a href="/PSE/">Accéder à PSE</a> · <a href="/Programme/">Voir Programme</a></div>
+        <span>© Le Blanc‑Mesnil — Ressources et projets</span>
+        <span>
+          <a href="/Programme/">Programme</a>
+          &nbsp;·&nbsp;
+          <a href="/PSE/">PSE</a>
+        </span>
       </div>
     </footer>
+
   </body>
 </html>
