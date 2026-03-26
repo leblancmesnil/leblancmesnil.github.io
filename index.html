@@ -1,14 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>My GitHub Pages</title>
-</head>
-<body>
-  <h1>Projects</h1>
-  <ul>
-    <li>/Programme/Programme</a></li>
-    <li>/PSE/PSE</a></li>
-  </ul>
-</body>
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Le Blanc-Mesnil — Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --bg:#f7fbf9;
+        --card:#ffffff;
+        --accent:#0b7a61; /* PSE-like green */
+        --muted:#6b7280;
+      }
+      html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+      body{background:linear-gradient(180deg,var(--bg),#eef7f4);display:flex;align-items:center;justify-content:center}
+      .container{max-width:920px;padding:36px}
+      .card{background:var(--card);border-radius:12px;box-shadow:0 8px 30px rgba(10,20,15,0.06);padding:40px;text-align:center}
+      .brand{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:18px}
+      .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2aa67a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+      h1{margin:0;font-size:20px;color:#06241a}
+      p.lead{color:var(--muted);margin-top:6px;margin-bottom:22px}
+      .links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+      .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;color:white;background:var(--accent);box-shadow:0 6px 18px rgba(11,122,97,0.16)}
+      .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(11,122,97,0.12);box-shadow:none}
+      .meta{margin-top:18px;color:var(--muted);font-size:13px}
+      @media (max-width:520px){.card{padding:20px}.logo{width:48px;height:48px}}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="brand">
+          <div class="logo">LM</div>
+          <div>
+            <h1>Le Blanc‑Mesnil</h1>
+            <p class="lead">Ressources et projets — accueil</p>
+          </div>
+        </div>
+
+        <p class="lead">Choisissez une destination :</p>
+
+        <div class="links">
+          <a class="btn" href="/PSE/">PSE — Plateforme</a>
+          <a class="btn secondary" href="/Programme/">Programme — Site</a>
+        </div>
+
+        <div class="meta">Vous êtes sur la page d'accueil. Les liens ci‑dessous mènent aux versions déployées.</div>
+      </div>
+    </div>
+  </body>
 </html>
