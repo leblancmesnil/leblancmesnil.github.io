@@ -13,8 +13,13 @@
         --muted:#6b7280;
       }
       html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
-      body{background:linear-gradient(180deg,var(--bg),#eef7f4);display:flex;align-items:center;justify-content:center}
-      .container{max-width:920px;padding:36px}
+      body{background:linear-gradient(180deg,var(--bg),#eef7f4);min-height:100vh;display:flex;flex-direction:column}
+      header{background:transparent;padding:18px 28px;display:flex;align-items:center;justify-content:center}
+      .topbar{width:100%;max-width:1100px;display:flex;align-items:center;justify-content:space-between}
+      .nav{display:flex;gap:10px;align-items:center}
+      .nav a{color:var(--accent);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
+      .nav a.primary{background:var(--accent);color:#fff}
+      .container{max-width:920px;padding:36px;margin:24px auto;flex:1;display:flex;align-items:center;justify-content:center}
       .card{background:var(--card);border-radius:12px;box-shadow:0 8px 30px rgba(10,20,15,0.06);padding:40px;text-align:center}
       .brand{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:18px}
       .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#2aa67a);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
@@ -24,12 +29,31 @@
       .btn{display:inline-block;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;color:white;background:var(--accent);box-shadow:0 6px 18px rgba(11,122,97,0.16)}
       .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(11,122,97,0.12);box-shadow:none}
       .meta{margin-top:18px;color:var(--muted);font-size:13px}
+      footer{padding:18px 28px;background:transparent}
+      .foot-inner{width:100%;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:13px}
+      .foot-inner a{color:var(--accent);text-decoration:none;font-weight:600}
       @media (max-width:520px){.card{padding:20px}.logo{width:48px;height:48px}}
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="card">
+    <header>
+      <div class="topbar">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="logo">LM</div>
+          <div>
+            <div style="font-weight:700;color:#06241a">Le Blanc‑Mesnil</div>
+            <div style="font-size:12px;color:var(--muted)">Ressources et projets</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="/PSE/" class="">PSE</a>
+          <a href="/Programme/" class="primary">Programme</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="card" role="main">
         <div class="brand">
           <div class="logo">LM</div>
           <div>
@@ -41,12 +65,20 @@
         <p class="lead">Choisissez une destination :</p>
 
         <div class="links">
-          <a class="btn" href="/PSE/">PSE — Plateforme</a>
-          <a class="btn secondary" href="/Programme/">Programme — Site</a>
+          <a class="btn" href="/Programme/">Programme — Site</a>
+          <a class="btn secondary" href="/PSE/">PSE — Plateforme</a>
+         
         </div>
 
         <div class="meta">Vous êtes sur la page d'accueil. Les liens ci‑dessous mènent aux versions déployées.</div>
       </div>
-    </div>
+    </main>
+
+    <footer>
+      <div class="foot-inner">
+        <div>© Le Blanc‑Mesnil — Ressources et projets</div>
+        <div><a href="/PSE/">Accéder à PSE</a> · <a href="/Programme/">Voir Programme</a></div>
+      </div>
+    </footer>
   </body>
 </html>
